@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conheça um pouco sobre mim!</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000000;
+        }
+
+        .container {
+            display: grid;
+        }
+
+        header {
+            grid-column-start: 1;
+            grid-column-end: 12;
+            background-color: #000000;
+        }
+
+        .menu {
+            grid-column-start: 6;
+            grid-column-end: 12;
+            justify-content: center;
+            background-color: #000000;
+            columns: white;
+            gap: 25px;
+        }
+
+        .principal {
+            grid-column-start: 4;
+            grid-column-end: 12;
+            padding-left: 15px;
+            padding-right: 15px;
+            text-align: justify;
+            background-color: #000000;
+            color: white;
+        }
+
+        footer {
+            grid-column-start: 1;
+            grid-column-end: 12;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            color: #000000;
+        }
+
+        a,
+        a:link {
+            text-decoration: none;
+            padding: 8px 16px;
+            border: solid #000000 1px;
+            margin: auto;
+        }
+
+        li {
+            float: left;
+        }
+
+        a:hover {
+            background-color: #000000;
+            color: white;
+        }
+        /* media query para dispositivos móveis */
+        @media only screen and (max-width: 700px) {
+            .wrapper {
+                grid-column-start: 1;
+                grid-column-end: 1;
+
+            }
+
+            .principal {
+                grid-column-start: 1;
+                grid-column-end: 1;
+
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav class="container menu">
+        <ul>
+            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="index.html">Conheça um pouco sobre mim!</a></li>
+            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="formacao.html">Formação Academica e Experiências Profissionais</a></li>
+            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="meuportifolio.html">Portifolio Pessoal</a></li>
+            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="contatos.html">Entre em contato comigo!</a></li>
+        </ul>
+    </nav>
+
+    <header class="container">
+        <h1 style="color: #000000; text-align: center;"><img src="EntreemContato.jpg" width="70%" height=68% style="float: center;"></h1>
+        <br>
+
+    </header>
+    
+    <div class="container wrapper">
+        <section class="principal">
+            <h1>
+                Entre em contato comigo nos links abaixo, ou deixe uma mensagem!
+            </h1>
+            <br>
+            <a href="//github.com/700ru"> github: 700ru</a>
+            <br>
+            <br>
+            <a href="mailto:danilojrdelfino@hotmail.com">Email: danilojrdelfino@hotmail.com</a>
+            <br>
+            <br>
+            <a href="//www.linkedin.com/in/danilo-cesar-delfino-junior-49a155175/">linkedin: Danilo Cesar Delfino Junior </a>
+            <br>
+            <br>
+            <h2>
+                <form>
+                    <br><br>
+                               <table>
+                    
+                    <tr>
+                        <th>Nome:</th>
+                        <td><input type="text" size="50"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>E-mail:</th>
+                        <td><input type="email" size="50"></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Mensagem:</th>
+                        <td><textarea rows="5" cols="50"></textarea></td>
+                    </tr>
+                    
+                
+                    <tr>
+                        <th></th>
+                        <td><input type="submit" value="Enviar"></td>
+                    </tr>
+                </table>
+                <br><br>
+                </form>
+            </h2>
+            </section>
+    </div>
+    <footer class="container">
+        <h1></h1>
+    </footer>
+    </div>
+</body>
+
+</html>
+
+Contato
