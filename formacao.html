@@ -1,160 +1,1020 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conheça um pouco sobre mim!</title>
+
+    <meta name="description"
+        content="Formação acadêmica, experiência profissional e habilidades de Dante Delfino.">
+
+    <title>Dante Delfino | Formação e Experiência</title>
+
+
     <style>
-        body {
+
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        * {
             margin: 0;
-            background-color: #000000;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container {
-            display: grid;
+        html {
+            scroll-behavior: smooth;
         }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         header {
-            grid-column-start: 1;
-            grid-column-end: 12;
-            background-color: #000000;
-            font-size: medium;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(8, 8, 8, 0.94);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #222;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            min-height: 75px;
+
+            margin: auto;
+            padding: 0 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+        }   
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            display: block;
         }
 
         .menu {
-            grid-column-start: 6;
-            grid-column-end: 12;
-            justify-content: center;
-            background-color: #000000;
-            columns: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            list-style: none;
+        }
+
+        .menu a {
+            display: block;
+
+            padding: 10px 15px;
+
+            color: #bdbdbd;
+
+            border-radius: 8px;
+
+            transition: 0.3s ease;
+        }
+
+        .menu a:hover,
+        .menu .active {
+            color: white;
+            background: #171717;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 100px 25px 80px;
+        }
+
+        .hero span {
+            color: #8b5cf6;
+
+            font-size: 0.9rem;
+            font-weight: bold;
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+
+            line-height: 1.05;
+
+            margin: 15px 0 25px;
+        }
+
+        .hero h1 span {
+            color: #8b5cf6;
+
+            font-size: inherit;
+            letter-spacing: normal;
+            text-transform: none;
+        }
+
+        .hero p {
+            max-width: 750px;
+
+            color: #aaa;
+
+            font-size: 1.15rem;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 70px 25px;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: #8b5cf6;
+
+            font-size: 0.85rem;
+            font-weight: bold;
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 2.4rem;
+
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           RESUMO PROFISSIONAL
+        ========================= */
+
+        .summary {
+            background: #111;
+
+            border: 1px solid #222;
+
+            border-left: 4px solid #8b5cf6;
+
+            border-radius: 12px;
+
+            padding: 30px;
+
+            color: #bbb;
+
+            font-size: 1.05rem;
+        }
+
+
+        /* =========================
+           FORMAÇÃO
+        ========================= */
+
+        .education {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
             gap: 25px;
         }
 
-        .principal {
-            grid-column-start: 4;
-            grid-column-end: 12;
-            padding-left: 15px;
-            padding-right: 15px;
-            text-align: justify;
-            background-color: #000000;
-            color: white;
+        .education-card {
+            background: #111;
+
+            border: 1px solid #222;
+
+            border-radius: 15px;
+
+            padding: 30px;
+
+            transition: 0.3s ease;
         }
 
-        footer {
-            grid-column-start: 1;
-            grid-column-end: 12;
-            background-color: #000000;
-            color: white;
-            text-align: center;
+        .education-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #8b5cf6;
         }
 
-        ul {
-            list-style-type: none;
-            color: #000000;
+        .education-date {
+            color: #8b5cf6;
+
+            font-size: 0.85rem;
+            font-weight: bold;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        a,
-        a:link {
-            text-decoration: none;
-            padding: 8px 16px;
-            border: solid #000000 1px;
+        .education-card h3 {
+            font-size: 1.4rem;
+
+            margin: 12px 0 8px;
+        }
+
+        .education-card p {
+            color: #999;
+        }
+
+
+        /* =========================
+           EXPERIÊNCIA
+        ========================= */
+
+        .timeline {
+            position: relative;
+
+            max-width: 950px;
+
             margin: auto;
         }
 
-        li {
-            float: left;
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 8px;
+            top: 0;
+            bottom: 0;
+
+            width: 2px;
+
+            background: #292929;
         }
 
-        a:hover {
-            background-color: #000000;
+        .timeline-item {
+            position: relative;
+
+            padding-left: 45px;
+
+            margin-bottom: 45px;
+        }
+
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            top: 7px;
+
+            width: 18px;
+            height: 18px;
+
+            background: #8b5cf6;
+
+            border-radius: 50%;
+
+            box-shadow: 0 0 0 5px #080808;
+        }
+
+        .timeline-date {
+            color: #8b5cf6;
+
+            font-size: 0.85rem;
+            font-weight: bold;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+
+            margin: 7px 0 2px;
+        }
+
+        .timeline-company {
+            color: #ddd;
+
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+        .timeline-item p {
+            color: #999;
+
+            max-width: 800px;
+        }
+
+
+        /* =========================
+           HABILIDADES
+        ========================= */
+
+        .skills {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .skill {
+            background: #111;
+
+            border: 1px solid #222;
+
+            border-radius: 12px;
+
+            padding: 25px;
+        }
+
+        .skill h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #999;
+        }
+
+
+        /* =========================
+           IDIOMAS
+        ========================= */
+
+        .languages {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .language {
+            background: #111;
+
+            border: 1px solid #222;
+
+            border-radius: 12px;
+
+            padding: 25px;
+        }
+
+        .language h3 {
+            margin-bottom: 5px;
+        }
+
+        .language p {
+            color: #8b5cf6;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 70px;
+
+            padding: 40px 25px;
+
+            border-top: 1px solid #222;
+
+            text-align: center;
+
+            color: #777;
+        }
+
+        footer strong {
             color: white;
         }
-        /* media query para dispositivos móveis */
-        @media only screen and (max-width: 700px) {
-            .wrapper {
-                grid-column-start: 1;
-                grid-column-end: 1;
 
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                flex-direction: column;
+
+                padding: 20px;
+
+                gap: 15px;
             }
 
-            .principal {
-                grid-column-start: 1;
-                grid-column-end: 1;
+            .menu {
+                flex-wrap: wrap;
 
+                justify-content: center;
             }
+
+            .education,
+            .skills,
+            .languages {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero {
+                padding: 80px 20px 60px;
+            }
+
+            section {
+                padding: 55px 20px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .menu a {
+                font-size: 0.85rem;
+
+                padding: 7px 8px;
+            }
+
+            .timeline-item {
+                padding-left: 35px;
+            }
+
         }
 
     </style>
+
 </head>
 
-<body>
-    <nav class="container menu">
-        <ul>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="index.html">Conheça um pouco sobre mim!</a></li>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="formacao.html">Formação Academica e Experiências Profissionais</a></li>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="meuportifolio.html">Portifolio Pessoal</a></li>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="contatos.html">Entre em contato comigo!</a></li>
-        </ul>
-    </nav>
 
-    <header class="container">
-        <h1 style="color: #000000; text-align: center;"><img src="FormaçãoAcademica.jpg" width="70%" height=68% style="float: center;"></h1>
-        <br>
+<body>
+
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <img src="LogoDante.png" alt="Logo Dante">
+            </a>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="index.html">
+                        Sobre mim
+                    </a>
+                </li>
+
+                <li>
+                    <a href="formacao.html" class="active">
+                        Formação
+                    </a>
+                </li>
+
+                <li>
+                    <a href="meuportifolio.html">
+                        Portfólio
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contatos.html">
+                        Contato
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
 
     </header>
-    
-    <div class="container wrapper">
-        <section class="principal">
+
+
+    <main>
+
+
+        <!-- =========================
+             INTRODUÇÃO
+        ========================== -->
+
+        <section class="hero">
+
+            <span>
+                Minha trajetória
+            </span>
+
             <h1>
-                Formação acadêmica
+                Formação &<br>
+                <span>Experiência.</span>
             </h1>
-            <p>Curso: Tecnico de Administração<br>
-                - Ano de conclusão: 2020<br>
-                - Instituição: BENEDICTO J CORDEIRO C E EF M N PROFIS<br>
-                <br>
-                Curso: Analise e Desenvolvimento de sistemas<br>
-                - Ano de conclusão: Previsão para 2024<br>
-                - Instituição: UNINTER Centro Universitário Internacional</p>
 
-            <h2>
-                Experiências Profissionais
-            </h2>
-            <p>Empresa: Procon - PR <br>
+            <p>
+                Conheça minha trajetória acadêmica e profissional,
+                desde minhas primeiras experiências no mercado de
+                trabalho até minha atuação atual na área de
+                Business Intelligence.
+            </p>
 
-                - Cargo: Estagiario <br>
-                - Tempo de Experiência: Março de 2019 - Fevereiro 2020
-                <br>
-                <br>
-                Empresa: Egger e Mesquita Advogados Associados<br>
-                
-                - Cargo:  Assistente jurídico<br>
-                - Tempo de Experiência: julho de 2021 - maio de 2024 (2 anos 11 meses)
-                <br>
-                <br>
-                - Cargo: Assistente de tecnologia<br>
-                - Tempo de Experiência: Abril de 2024 - Presente</p>
-            <h3>
-                Idiomas
-            </h3>
-            <p>Espanhol basico
-                <br>
-                Instituição: Francisco A Macedo<br>
-                Conclusão: 2017<br>
-                <br>
-                Inglês intermediário
-                <br>
-                Instituição: UNINTER Centro Universitário Internacional<br>
-                Conclusão: Ainda em conclusão.<br>
-                <br>
-                </p>
         </section>
-    </div>
-    <footer class="container">
-        <h1></h1>
-    </footer>
-    </div>
-</body>
 
+
+        <!-- =========================
+             RESUMO PROFISSIONAL
+        ========================== -->
+
+        <section>
+
+            <div class="section-title">
+
+                <span>
+                    01 — Perfil
+                </span>
+
+                <h2>
+                    Resumo profissional
+                </h2>
+
+            </div>
+
+
+            <div class="summary">
+
+                <p>
+                    Sou um profissional focado e interessado em
+                    inovação e aprendizado contínuo. Busco sempre
+                    desenvolver novos conhecimentos, compreender
+                    diferentes áreas e encontrar maneiras de
+                    melhorar processos através da tecnologia
+                    e dos dados.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FORMAÇÃO ACADÊMICA
+        ========================== -->
+
+        <section>
+
+            <div class="section-title">
+
+                <span>
+                    02 — Educação
+                </span>
+
+                <h2>
+                    Formação acadêmica
+                </h2>
+
+            </div>
+
+
+            <div class="education">
+
+
+                <article class="education-card">
+
+                    <p class="education-date">
+                        Jun. 2022 — Dez. 2024
+                    </p>
+
+                    <h3>
+                        Análise e Desenvolvimento de Sistemas
+                    </h3>
+
+                    <p>
+                        UNINTER — Centro Universitário Internacional
+                    </p>
+
+                </article>
+
+
+                <article class="education-card">
+
+                    <p class="education-date">
+                        Fev. 2019 — Jul. 2020
+                    </p>
+
+                    <h3>
+                        Técnico em Administração
+                    </h3>
+
+                    <p>
+                        Colégio Estadual João Bettega
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             EXPERIÊNCIA PROFISSIONAL
+        ========================== -->
+
+        <section>
+
+            <div class="section-title">
+
+                <span>
+                    03 — Carreira
+                </span>
+
+                <h2>
+                    Experiência profissional
+                </h2>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <!-- PROCON -->
+
+                <article class="timeline-item">
+
+                    <p class="timeline-date">
+                        Mar. 2019 — Fev. 2020
+                    </p>
+
+                    <h3>
+                        Estagiário
+                    </h3>
+
+                    <p class="timeline-company">
+                        Procon — PR
+                    </p>
+
+                    <p>
+                        Atuação nas áreas de RH e administrativo geral,
+                        realizando arquivamento de processos, fechamento
+                        de folha de pagamento, envio de notificações de
+                        audiências e leitura e conferência de processos.
+                    </p>
+
+                </article>
+
+
+                <!-- APRENDIZ -->
+
+                <article class="timeline-item">
+
+                    <p class="timeline-date">
+                        Set. 2020 — Ago. 2021
+                    </p>
+
+                    <h3>
+                        Aprendiz
+                    </h3>
+
+                    <p class="timeline-company">
+                        Egger e Mesquita Advogados Associados
+                    </p>
+
+                    <p>
+                        Atuação com organização e arquivamento de
+                        documentos, lançamento de informações no sistema,
+                        protocolos e criação de fichas para localização
+                        de arquivos.
+                    </p>
+
+                </article>
+
+
+                <!-- ASSISTENTE JURÍDICO -->
+
+                <article class="timeline-item">
+
+                    <p class="timeline-date">
+                        Ago. 2021 — Mai. 2024
+                    </p>
+
+                    <h3>
+                        Assistente Jurídico
+                    </h3>
+
+                    <p class="timeline-company">
+                        Egger e Mesquita Advogados Associados
+                    </p>
+
+                    <p>
+                        Experiência com elaboração de peças iniciais,
+                        notificações, classificação e acompanhamento
+                        de processos, distribuição de processos,
+                        geração de guias de custas processuais e
+                        protocolos urgentes e complexos.
+                    </p>
+
+                </article>
+
+
+                <!-- AUTOMAÇÃO -->
+
+                <article class="timeline-item">
+
+                    <p class="timeline-date">
+                        Abr. 2024 — Jan. 2025
+                    </p>
+
+                    <h3>
+                        Assistente de Automação
+                    </h3>
+
+                    <p class="timeline-company">
+                        Egger e Mesquita Advogados Associados
+                    </p>
+
+                    <p>
+                        Atuação na melhoria de processos por meio
+                        de automações e desenvolvimento em Python,
+                        pesquisa de novas ferramentas e sistemas,
+                        identificação de oportunidades de melhoria
+                        e manutenção de automações existentes.
+                    </p>
+
+                </article>
+
+
+                <!-- BI -->
+
+                <article class="timeline-item">
+
+                    <p class="timeline-date">
+                        Fev. 2025 — Presente
+                    </p>
+
+                    <h3>
+                        Assistente de Business Intelligence
+                    </h3>
+
+                    <p class="timeline-company">
+                        Egger e Mesquita Advogados Associados
+                    </p>
+
+                    <p>
+                        Atuação com análise de dados, tratamento e
+                        organização de informações, construção de
+                        dashboards, criação de estruturas de dados
+                        e desenvolvimento de análises para apoio
+                        à tomada de decisões.
+                    </p>
+
+                    <p style="margin-top: 12px;">
+                        Tecnologias e ferramentas utilizadas:
+                        <strong>
+                            Qlik Sense, Snowflake, Excel e Python.
+                        </strong>
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HABILIDADES
+        ========================== -->
+
+        <section>
+
+            <div class="section-title">
+
+                <span>
+                    04 — Competências
+                </span>
+
+                <h2>
+                    Habilidades
+                </h2>
+
+            </div>
+
+
+            <div class="skills">
+
+
+                <article class="skill">
+
+                    <h3>
+                        📊 Análise de dados
+                    </h3>
+
+                    <p>
+                        Experiente
+                    </p>
+
+                </article>
+
+
+                <article class="skill">
+
+                    <h3>
+                        📗 Excel
+                    </h3>
+
+                    <p>
+                        Experiente
+                    </p>
+
+                </article>
+
+
+                <article class="skill">
+
+                    <h3>
+                        ⚙️ Automação de processos
+                    </h3>
+
+                    <p>
+                        Intermediário
+                    </p>
+
+                </article>
+
+
+                <article class="skill">
+
+                    <h3>
+                        📈 Business Intelligence
+                    </h3>
+
+                    <p>
+                        Qlik Sense e construção de dashboards
+                    </p>
+
+                </article>
+
+
+                <article class="skill">
+
+                    <h3>
+                        🗄️ Dados
+                    </h3>
+
+                    <p>
+                        Estruturação e tratamento de dados
+                    </p>
+
+                </article>
+
+
+                <article class="skill">
+
+                    <h3>
+                        🐍 Python
+                    </h3>
+
+                    <p>
+                        Automação e manipulação de dados
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             IDIOMAS
+        ========================== -->
+
+        <section>
+
+            <div class="section-title">
+
+                <span>
+                    05 — Idiomas
+                </span>
+
+                <h2>
+                    Idiomas
+                </h2>
+
+            </div>
+
+
+            <div class="languages">
+
+
+                <article class="language">
+
+                    <h3>
+                        Português
+                    </h3>
+
+                    <p>
+                        Nativo
+                    </p>
+
+                </article>
+
+
+                <article class="language">
+
+                    <h3>
+                        Inglês
+                    </h3>
+
+                    <p>
+                        Intermediário
+                    </p>
+
+                </article>
+
+
+                <article class="language">
+
+                    <h3>
+                        Espanhol
+                    </h3>
+
+                    <p>
+                        Básico
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+        <p>
+            Desenvolvido por
+            <strong>Dante Delfino</strong>
+        </p>
+
+        <p>
+            © 2026 — Todos os direitos reservados.
+        </p>
+    </footer>
+
+
+</body>
 </html>
