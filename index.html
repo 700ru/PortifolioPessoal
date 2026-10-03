@@ -1,152 +1,831 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conheça um pouco sobre mim!</title>
+
+    <meta name="description"
+        content="Portfólio pessoal de Dante Delfino — Business Intelligence, Dados e Tecnologia.">
+
+    <title>Dante Delfino | Portfólio</title>
+
     <style>
-        body {
+        /* =========================
+           CONFIGURAÇÕES GERAIS
+        ========================= */
+
+        * {
             margin: 0;
-            background-color: #000000;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .container {
-            display: grid;
+        html {
+            scroll-behavior: smooth;
         }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         header {
-            grid-column-start: 1;
-            grid-column-end: 12;
-            background-color: #000000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(10px);
+
+            border-bottom: 1px solid #222;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: auto;
+
+            min-height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+        }   
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            display: block;
         }
 
         .menu {
-            grid-column-start: 6;
-            grid-column-end: 12;
-            justify-content: center;
-            background-color: #000000;
-            columns: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            list-style: none;
+        }
+
+        .menu a {
+            display: block;
+
+            padding: 10px 15px;
+
+            color: #bdbdbd;
+
+            border-radius: 8px;
+
+            transition: 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: white;
+            background: #171717;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: calc(100vh - 75px);
+
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 80px 25px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-subtitle {
+            color: #8B0000;
+            font-size: 1rem;
+            font-weight: bold;
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #8B0000;
+        }
+
+        .hero-description {
+            max-width: 700px;
+
+            font-size: 1.25rem;
+            color: #bdbdbd;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 13px 24px;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s ease;
+        }
+
+        .button-primary {
+            background: #8B0000;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #A00000;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid #333;
+            color: #ddd;
+        }
+
+        .button-secondary:hover {
+            border-color: #8B0000;
+            color: white;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #8B0000;
+            font-size: 0.9rem;
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           SOBRE MIM
+        ========================= */
+
+        .about {
+            display: grid;
+
+            grid-template-columns: 350px 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 350px;
+
+            border-radius: 20px;
+
+            border: 1px solid #333;
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #bdbdbd;
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+        }
+
+
+        /* =========================
+           CARDS DE INTERESSES
+        ========================= */
+
+        .interests {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .interest-card {
+            background: #111;
+
+            border: 1px solid #222;
+
+            border-radius: 15px;
+
+            padding: 30px 20px;
+
+            transition: 0.3s ease;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #8B0000;
+
+            background: #141414;
+        }
+
+        .interest-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .interest-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .interest-card p {
+            color: #999;
+            font-size: 0.95rem;
+        }
+
+
+        /* =========================
+           GALERIA
+        ========================= */
+
+        .gallery {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+
+            border-radius: 15px;
+
+            border: 1px solid #222;
+
+            background: #111;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+
+            object-fit: cover;
+
+            transition: 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+
+        /* =========================
+           TEXTOS
+        ========================= */
+
+        .texts {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
             gap: 25px;
         }
 
+        .text-card {
+            background: #111;
 
-        .imagemSobremim {
-            grid-column-start: 1;
-            grid-column-end: 3;
-            background-color: #000000;
+            border: 1px solid #222;
+
+            border-radius: 15px;
+
+            padding: 15px;
+        }
+
+        .text-card img {
+            width: 100%;
+            height: 350px;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+        }
+
+
+        /* =========================
+           FRASE FINAL
+        ========================= */
+
+        .quote {
+            text-align: center;
+
+            padding: 120px 25px;
+        }
+
+        .quote p {
+            max-width: 750px;
+
             margin: auto;
+
+            font-size: 2rem;
+
+            font-weight: bold;
+
+            line-height: 1.4;
         }
 
-        .principal {
-            grid-column-start: 4;
-            grid-column-end: 12;
-            padding-left: 15px;
-            padding-right: 15px;
-            text-align: justify;
-            background-color: #000000;
-            color: white;
+        .quote span {
+            display: block;
+
+            margin-top: 20px;
+
+            color: #8B0000;
         }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            grid-column-start: 1;
-            grid-column-end: 12;
-            background-color: #000000;
-            color: white;
+            border-top: 1px solid #222;
+
+            padding: 40px 25px;
+
             text-align: center;
+
+            color: #777;
         }
 
-        ul {
-            list-style-type: none;
-            color: #000000;
-        }
-
-        a,
-        a:link {
-            text-decoration: none;
-            padding: 8px 16px;
-            border: solid #000000 1px;
-            margin: auto;
-        }
-
-        li {
-            float: left;
-        }
-
-        a:hover {
-            background-color: #000000;
+        footer strong {
             color: white;
         }
-        /* media query para dispositivos móveis */
-        @media only screen and (max-width: 700px) {
-            .wrapper {
-                grid-column-start: 1;
-                grid-column-end: 1;
 
+
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .about {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
             }
 
-            .imagemSobremim {
-                grid-column-start: 1;
-                grid-column-end: 1;
-
+            .profile-image {
+                margin: auto;
             }
 
-            .principal {
-                grid-column-start: 1;
-                grid-column-end: 1;
-
+            .interests {
+                grid-template-columns: repeat(2, 1fr);
             }
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                flex-direction: column;
+
+                padding: 20px;
+
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 2px;
+            }
+
+            .menu a {
+                font-size: 0.85rem;
+
+                padding: 7px 8px;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding: 100px 25px;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.05rem;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .interests {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .texts {
+                grid-template-columns: 1fr;
+            }
+
+            .quote p {
+                font-size: 1.5rem;
+            }
+
         }
 
     </style>
 </head>
 
-<body>
-    <nav class="container menu">
-        <ul>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="index.html">Conheça um pouco sobre mim!</a></li>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="formacao.html">Formação Academica e Experiências Profissionais</a></li>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="meuportifolio.html">Portifolio Pessoal</a></li>
-            <li><img src="estrelaprata.png"alt="Image" height="13" width="13"><a href="contatos.html">Entre em contato comigo!</a></li>
-        </ul>
-    </nav>
 
-    <header class="container">
-        <h1 style="color: #000000; text-align: center;"><img src="Conhecaumpouco.jpeg" width="70%" height=68% style="float: center;"></h1>
-        <br>
+<body>
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <img src="LogoDante.png" alt="Logo Dante">
+            </a>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="#sobre">Sobre mim</a>
+                </li>
+
+                <li>
+                    <a href="formacao.html">Formação</a>
+                </li>
+
+                <li>
+                    <a href="meuportifolio.html">Portfólio</a>
+                </li>
+
+                <li>
+                    <a href="contatos.html">Contato</a>
+                </li>
+
+            </ul>
+
+        </nav>
 
     </header>
-    
-    <div class="container wrapper">
-        <aside class="imagemSobremim">
-            <img src="FotoPrincipal.jpeg"alt="Image" height="500" width="390">
-        </aside>
-        <section class="principal">
-            <h1>
-                Sejam Bem-vindos ao meu pequeno Mundinho!
-            </h1>
-            <p>Prazer em encontrar você, me chamo Danilo Cesar e atualmente tenho 22 anos, estou no último ano da faculdade de Analise e Desenvolvimento de Sistemas e estou trabalhando na área de automação em um escritório de advocacia, se fosse para me descrever acho que seria uma pessoa animada demais as vezes, que ama fazer piadas e ver pessoas que ama felizes e também adora ouvir sobre assuntos mais diversos e aleatórios, mas normalmente eu sou uma pessoa muito quieta e timida quando estou com vergonha.</p>
 
-            <p>Alguns do meus hobbys favoritos são ler, escrever, ouvir musica, desenhar, jogar e assistir animes. Como sou um leitor muito ávido, ultimamente tenho lido o segundo livro sequencia de Divinos rivais (Rebecca Ross, 2023) chamado Promessas Crueis (Rebecca Ross, 2024), ambos os livros são muito interessantes, pois contam sobre um mundo com Deuses mortos, a guerra na forma mais nua e crua e a vontade de duas pessoas em passar por tudo isso apenas para ficarem juntas e viverem felizes em paz. </p>
-                
-            <p>Sobre música, a minha favorita é “Bad Liar” do Imagine Dragons, desde que ela lançou eu sinto uma conexão boa com a música, aproveitando e falando um pouco sobre jogos, eu gosto muito de anime e jogos nesse estilo, especialmente os gachas que são mais focados em pegar os personagens.</p>
-                
-            <p>O meu anime favorito é Re: zero, tanto o anime quando a novel são incriveis, eu sou um grande colecionador das novels, sempre que lança estou adquirindo, outros animes que eu gosto são Bleach, Zatch Bell, Overlord, Sousou no Frieren, Mashle, Kimetsu no Yaiba, Jujutsu Kaisen, Nanatsu no taizai, entre outros.</p>
-            <h2>
-                Aqui estão alguns dos desenhos que já fiz!
-            </h2>
-            <img src="Desenho_Danganronpa.jpeg"alt="Image" height="300" width="200"> <img src="Desenho_Salura.jpeg"alt="Image" height="300" width="200"> <img src="Desenho_Meliodas.jpeg"alt="Image" height="300" width="200"> <img src="Desenho_Stolas.jpeg"alt="Image" height="300" width="200">
-            <h3>
-                Essas são alguns dos textos que já escrevi
-            </h3>
-            <img src="Nota_Melodia.jpeg"alt="Image" height="300" width="250">   <img src="Nota_Correntes.jpeg"alt="Image" height="300" width="250">
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-subtitle">
+                    Business Intelligence • Dados • Tecnologia • Automação
+                </p>
+
+                <h1>
+                    Olá, eu sou<br>
+                    <span>Dante.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Analista de dados apaixonado por tecnologia, automação,
+                    informação e pela criação de soluções que
+                    transformam dados em conhecimento.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#sobre" class="button button-primary">
+                        Conheça minha história
+                    </a>
+
+                    <a href="meuportifolio.html" class="button button-secondary">
+                        Ver meu portfólio
+                    </a>
+                </div>
+            </div>
         </section>
-    </div>
-    <footer class="container">
-        <h1></h1>
+
+
+        <!-- =========================
+             SOBRE MIM
+        ========================== -->
+
+        <section id="sobre">
+
+            <div class="section-title">
+                <span>01 — Sobre mim</span>
+                <h2>Prazer, Eu sou Dante.</h2>
+            </div>
+
+
+            <div class="about">
+
+                <div>
+                    <img
+                        src="FotoPrincipal.jpeg"
+                        alt="Foto de Dante"
+                        class="profile-image"
+                    >
+                </div>
+
+
+                <div class="about-text">
+                    <h3>
+                        Tecnologia, dados e criatividade.
+                    </h3>
+
+                    <p>
+                        Prazer em encontrar você! Meu nome é Dante e sou
+                        formado em Análise e Desenvolvimento de Sistemas.
+                        Atualmente atuo na área de Business Intelligence,
+                        trabalhando com dados, análises e estrategia de negocio.
+                    </p>
+
+                    <p>
+                        Minha trajetória profissional me permitiu passar
+                        por diferentes áreas e conhecer diferentes formas
+                        de trabalho. Essa experiência acabou me aproximando
+                        cada vez mais da tecnologia.
+                    </p>
+
+                    <p>
+                        Gosto de transformar informações em algo que possa
+                        ser compreendido e utilizado para apoiar decisões.
+                        Desde a estruturação dos dados até a construção
+                        das análises e visualizações, gosto de participar
+                        de todo o processo.
+                    </p>
+
+                    <p>
+                        Fora do trabalho, sou uma pessoa bastante curiosa.
+                        Gosto de ler, escrever, desenhar, ouvir música,
+                        jogar e assistir animes. São justamente esses
+                        interesses que acabam trazendo um pouco mais de
+                        criatividade para a minha vida profissional.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             INTERESSES
+        ========================== -->
+
+        <section>
+            <div class="section-title">
+                <span>02 — Além da tecnologia</span>
+                <h2>O que eu gosto de fazer?</h2>
+            </div>
+
+
+            <div class="interests">
+
+                <article class="interest-card">
+                    <div class="interest-icon">📚</div>
+                    <h3>Leitura</h3>
+                    <p>
+                        Sou um leitor assíduo e gosto principalmente
+                        de histórias de fantasia e mundos complexos com magia.
+                    </p>
+                </article>
+
+
+                <article class="interest-card">
+                    <div class="interest-icon">🎮</div>
+                    <h3>Games</h3>
+                    <p>
+                        Gosto de RPGs, jogos de história, gachas
+                        e experiências que me permitam explorar novos mundos.
+                    </p>
+                </article>
+
+
+                <article class="interest-card">
+                    <div class="interest-icon">🎨</div>
+                    <h3>Desenho</h3>
+                    <p>
+                        O desenhar é uma das formas que encontrei
+                        para exercitar minha criatividade.
+                    </p>
+                </article>
+
+
+                <article class="interest-card">
+                    <div class="interest-icon">🎵</div>
+                    <h3>Música</h3>
+                    <p>
+                        Música sempre esteve presente na minha vida
+                        e acompanha diferentes momentos do meu dia.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             DESENHOS
+        ========================== -->
+
+        <section>
+
+            <div class="section-title">
+                <span>03 — Criatividade</span>
+                <h2>Alguns dos meus desenhos</h2>
+            </div>
+
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img
+                        src="Desenho_Luffy.jpeg"
+                        alt="Desenho do Luffy"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="Desenho_Sakura.jpeg"
+                        alt="Desenho da Sakura"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="Desenho_Meliodas.jpeg"
+                        alt="Desenho do Meliodas"
+                    >
+                </div>
+
+                <div class="gallery-item">
+                    <img
+                        src="Desenho_Fuxuan.jpeg"
+                        alt="Desenho da Fu Xuan"
+                    >
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             TEXTOS
+        ========================== -->
+
+        <section>
+
+            <div class="section-title">
+                <span>04 — Escrita</span>
+
+                <h2>Alguns textos que já escrevi</h2>
+            </div>
+
+
+            <div class="texts">
+                <article class="text-card">
+                    <img
+                        src="Nota_Melodia.jpeg"
+                        alt="Texto escrito por Dante"
+                    >
+                </article>
+
+                <article class="text-card">
+                    <img
+                        src="Nota_Individuo.jpeg"
+                        alt="Texto escrito por Dante"
+                    >
+                </article>
+            </div>
+        </section>
+
+
+        <!-- =========================
+             FRASE FINAL
+        ========================== -->
+
+        <section class="quote">
+
+            <p>
+                Obrigado por conhecer um pedacinho do meu mundo!
+            </p>
+<!-- 
+            <span>— Dante Delfino</span> -->
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            Desenvolvido por <strong>Dante Delfino</strong>
+        </p>
+
+        <p>
+            © 2026 — Todos os direitos reservados.
+        </p>
+
     </footer>
-    </div>
+
+
 </body>
 
 </html>
